@@ -13,7 +13,7 @@ Pipelines of customer report analysis.
 #3. reference_path is the cancer-related gene sets of 17 types of cancer
 
 #INPUT: TPM.txt from sample
-#       *.xml frem cancer-related gene set
+#       *.xml from cancer-related gene set
 
 #OUTPUT: a folder which is names after corresponding sample, save the data we used for calculating.
 #        a .txt file which contains the final results of overlapping, .txt have 3 columns of numbers, 
@@ -23,5 +23,6 @@ Pipelines of customer report analysis.
 #USEAGE: All you need to do is: 1. Setting the paths 
 #                               2. Saving data with fixed format into corresponding folders
 #                               3. Runing this script
-
+#       （the # of group could change with how many thresholds you want to check, controllsed by 
+#         variate TPM_threshould）
 #Enjoy!
