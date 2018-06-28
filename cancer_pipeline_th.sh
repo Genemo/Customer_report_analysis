@@ -30,8 +30,7 @@ for j in $(cd $sample_path;ls *.txt); do
 	Name=$(basename $sample_path/$j .txt)
 	 
 	 mkdir $project_path/$Name
-
-	 #touch $result_path/$Name/total_$Name.txt
+	 
   
    for i in $(cd $reference_path;ls *.xml); do
 
@@ -51,19 +50,15 @@ for j in $(cd $sample_path;ls *.txt); do
 
      grep -F -f $project_path/$Name/$Cancer/$Cancer.txt $project_path/$Name/$Cancer/exp.txt > $project_path/$Name/$Cancer/same_$Cancer.txt
      wc -l $project_path/$Name/$Cancer/$Cancer.txt $project_path/$Name/$Cancer/exp.txt $project_path/$Name/$Cancer/same_$Cancer.txt > $project_path/$Name/$Cancer/results_$Cancer.txt
-     
 
      awk '{print $1}' $project_path/$Name/$Cancer/results_$Cancer.txt | xargs |awk -v t=$n '{print t,$1,$2,$3}'>> $project_path/$Name/$Cancer/total_$Cancer.txt
 
      done
-     #sed -i '' 's/^/$(echo $Cancer)\n/' $project_path/total_$Name.txt
+     
      awk -v t=$Cancer '{print}BEGIN{print t}' $project_path/$Name/$Cancer/total_$Cancer.txt >>$project_path/total_$Name.txt  
-     #awk 'BEGIN{a=$Cancer}{printf "%s\t",a}for (m=1;m<=NF;M++){Printf($m);Print("\t")}print("%s","\n")}'>> $project_path/total_$Name.txt
-   
+     
    done
-     #awk -v t=$Cancer '{print}BEGIN{print t}' $project_path/$Name/$Cancer/total_$Cancer.txt >>$project_path/total_$Name.txt  
-     #awk -v r=$(seq 1 $(ls $reference_path/*.xml|wc -l)) '{print r}' $project_path/total_$Name.txt>> $project_path/total_$Name.txt
-
+     
 done
 
 
