@@ -42,7 +42,8 @@ for j in $(cd $sample_path;ls *.txt); do
      for n in $(seq 0 $TPM_threshould); do
 
      #awk '$2!='0\n' {print $1}' $sample_path/$j> $project_path/$Name/$Cancer/exp.txt
-     awk '$2>='$n' {print $1}' $sample_path/$j> $project_path/$Name/$Cancer/exp.txt
+     #awk '$2>='$n' {print $1}' $sample_path/$j> $project_path/$Name/$Cancer/exp.txt
+     awk '$2>'$n' {print $1}' $sample_path/$j> $project_path/$Name/$Cancer/exp.txt
 
      grep "<identifier" $reference_path/$i | awk '{print $2}' > $project_path/$Name/$Cancer/$Cancer.txt
      sed -i '' 's/^.\{4\}//g' $project_path/$Name/$Cancer/$Cancer.txt
