@@ -11,10 +11,10 @@ Author Yuan Liu <annlyuan@genemo.com>
 - 2. sample_path is the folder of TPM.txt file for each sample
 - 3. reference_path is the cancer-related gene sets of 17 types of cancer
 
-You can simply adjust the PATH and run is by using thia commend:
-、、、
+You can simply adjust the PATHs and run this programe by using follow commend:
+```
 bash cancer_pipeline0626.sh
-、、、
+```
 
 # INPUT: 
 - TPM.txt from sample
