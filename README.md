@@ -30,6 +30,6 @@ bash cancer_pipeline0626.sh
 - 1. Setting the paths 
 - 2. Saving data with fixed format into corresponding folders
 - 3. Runing this script
--        （the # of group could change with how many thresholds you want to check, controllsed by variate TPM_threshould）
+- (the # of group could change with how many thresholds you want to check, controllsed by variate TPM_threshould）
 
 ### Enjoy!
