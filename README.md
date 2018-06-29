@@ -13,7 +13,7 @@ Author Yuan Liu <annlyuan@genemo.com>
 
 You can simply adjust the PATHs and run this programe by using follow commend:
 ```
-bash cancer_pipeline0626.sh
+bash cancer_pipeline_0626.sh
 ```
 
 # INPUT: 
