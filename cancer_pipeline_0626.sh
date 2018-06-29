@@ -22,8 +22,6 @@ for j in $(cd $sample_path;ls *.txt); do
 	Name=$(basename $sample_path/$j .txt)
 	 
 	 mkdir $project_path/$Name
-
-	 #touch $result_path/$Name/total_$Name.txt
   
    for i in $(cd $reference_path;ls *.xml); do
 
@@ -31,8 +29,7 @@ for j in $(cd $sample_path;ls *.txt); do
 
      mkdir $project_path/$Name/$Cancer
 
-     awk '$2!='0\n' {print $1}' $sample_path/$j> $project_path/$Name/$Cancer/exp.txt
-     awk '$2>=1 {print $1}' $sample_path/$j> $project_path/$Name/$Cancer/exp1.txt
+     awk '$2>10 {print $1}' $sample_path/$j> $project_path/$Name/$Cancer/exp1.txt
 
      grep "<identifier" $reference_path/$i | awk '{print $2}' > $project_path/$Name/$Cancer/$Cancer.txt
      sed -i '' 's/^.\{4\}//g' $project_path/$Name/$Cancer/$Cancer.txt
@@ -40,10 +37,8 @@ for j in $(cd $sample_path;ls *.txt); do
 
      grep -F -f $project_path/$Name/$Cancer/$Cancer.txt $project_path/$Name/$Cancer/exp.txt > $project_path/$Name/$Cancer/same_$Cancer.txt
      wc -l $project_path/$Name/$Cancer/$Cancer.txt $project_path/$Name/$Cancer/exp.txt $project_path/$Name/$Cancer/same_$Cancer.txt > $project_path/$Name/$Cancer/results_$Cancer.txt
-     grep -F -f $project_path/$Name/$Cancer/$Cancer.txt $project_path/$Name/$Cancer/exp1.txt > $project_path/$Name/$Cancer/same1_$Cancer.txt
-     wc -l $project_path/$Name/$Cancer/$Cancer.txt $project_path/$Name/$Cancer/exp1.txt $project_path/$Name/$Cancer/same1_$Cancer.txt >>$project_path/$Name/$Cancer/results_$Cancer.txt
-
-     awk '{print $1}' $project_path/$Name/$Cancer/results_$Cancer.txt | xargs |awk -v t=$Cancer '{print t,$1,$2,$3,$5,$6,$7}'>> $project_path/total_$Name.txt
+     
+     awk '{print $1}' $project_path/$Name/$Cancer/results_$Cancer.txt | xargs |awk -v t=$Cancer '{print t,$1,$2,$3}'>> $project_path/total_$Name.txt
 
    done
 
