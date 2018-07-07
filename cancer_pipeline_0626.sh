@@ -17,6 +17,8 @@ sample_path=/Users/annlyuan2018/Downloads/exp_sample
 reference_path=/Users/annlyuan2018/Downloads/cancer_reference
 code_path=/Users/annlyuan2018/Downloads/R_code
 
+TPM_threshould=10
+
 for j in $(cd $sample_path;ls *.txt); do
 
 	Nam=$(basename $sample_path/$j .txt)
@@ -33,7 +35,7 @@ for j in $(cd $sample_path;ls *.txt); do
 
          mkdir $project_path/$Nam/$Cancer
 
-         awk '$2>10 {print $1}' $sample_path/$j> $project_path/$Nam/$Cancer/exp1.txt
+         awk '$2>$TPM_threshould {print $1}' $sample_path/$j> $project_path/$Nam/$Cancer/exp1.txt
 
          grep "<identifier" $reference_path/$i | awk '{print $2}' > $project_path/$Nam/$Cancer/$Cancer.txt
          sed -i '' 's/^.\{4\}//g' $project_path/$Nam/$Cancer/$Cancer.txt
@@ -43,6 +45,11 @@ for j in $(cd $sample_path;ls *.txt); do
          wc -l $project_path/$Nam/$Cancer/$Cancer.txt $project_path/$Nam/$Cancer/exp.txt $project_path/$Nam/$Cancer/same_$Cancer.txt > $project_path/$Nam/$Cancer/results_$Cancer.txt
      
          awk '{print $1}' $project_path/$Nam/$Cancer/results_$Cancer.txt | xargs |awk -v t=$Cancer '{print t,$1,$2,$3}'>> $project_path/total_$Nam.txt
+
+         awk '{print ($4/$2)*100}' $project_path/$Nam/$Cancer/total_$Cancer.txt >t.txt
+         paste $project_path/$Nam/$Cancer/total_$Cancer.txt t.txt > $project_path/$Nam/$Cancer/total_$Cancer.txt
+         rm -f t.txt
+
 
    done
 
