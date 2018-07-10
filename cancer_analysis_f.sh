@@ -13,11 +13,13 @@
 #pattern:
 ####    bash cancer_analysis_f.sh 16 ./exp_sample ./cancer_reference ./test
 
-TPM_threshould=$1
+TPM_threshould=${4:-16}
 
-sample_path=$2
-reference_path=$3
-project_path=$4
+echo "TPM_threshould is  $TPM_threshould"
+
+sample_path=$1
+reference_path=$2
+project_path=$3
 
 
 #project_path=/Users/annlyuan2018/Downloads/test
