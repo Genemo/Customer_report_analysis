@@ -23,7 +23,7 @@ bash cancer_analysis_f.sh ./exp_sample ./cancer_reference ./test  10
 - if you don't name the <TPM_threshould（optional）>, the program will ues default value.
 
 #### Searching for the optimal value
-- If you are not sure which TPM_threshould is fits to your data, you can use cancer_analysis_threshold.sh to search for the optimal value. it can calculate all the possibly percentages from to  <TPM_threshould（optional> (use 1 as step) for corresponding cancer data of each sample.
+- If you are not sure which TPM_threshould is fits to your data, you can use cancer_analysis_threshold.sh to search for the optimal value. it can calculate all the possibly percentages from to  <TPM_threshould（optional> (use 1 as step size) for corresponding cancer data of each sample.
 
 ```
 bash  cancer_analysis_threshold.sh <Input_path> <cancer_reference> <Output_path> <TPM_threshould（optional）> 
