@@ -20,7 +20,7 @@ Example
 ```
 bash cancer_analysis_f.sh ./exp_sample ./cancer_reference ./test  10
 ```
-if you don't name the <TPM_threshould（optional）> the default value is 16.
+if you don't name the <TPM_threshould（optional）>, the program will ues default value.
 
 # INPUT: 
 - TPM.txt from sample
