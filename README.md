@@ -12,8 +12,13 @@ Author Yuan Liu <annlyuan@genemo.com>
 - 3. reference_path is the cancer-related gene sets of 17 types of cancer
 
 You can simply adjust the PATHs and run this programe by using follow commend:
+
 ```
-bash cancer_pipeline_0626.sh
+bash cancer_analysis_f.sh <TPM_threshould> <Input_path> <cancer_reference> <Output_path>
+```
+Example
+```
+bash cancer_analysis_f.sh 16 ./exp_sample ./cancer_reference ./test
 ```
 
 # INPUT: 
