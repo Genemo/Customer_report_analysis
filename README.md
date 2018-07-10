@@ -14,12 +14,13 @@ Author Yuan Liu <annlyuan@genemo.com>
 You can simply adjust the PATHs and run this programe by using follow commend:
 
 ```
-bash cancer_analysis_f.sh <TPM_threshould> <Input_path> <cancer_reference> <Output_path>
+bash cancer_analysis_f.sh <Input_path> <cancer_reference> <Output_path> <TPM_threshould（optional）> 
 ```
 Example
 ```
-bash cancer_analysis_f.sh 16 ./exp_sample ./cancer_reference ./test
+bash cancer_analysis_f.sh ./exp_sample ./cancer_reference ./test  10
 ```
+if you don't name the <TPM_threshould（optional）> the default value is 16.
 
 # INPUT: 
 - TPM.txt from sample
